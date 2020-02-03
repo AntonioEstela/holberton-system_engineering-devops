@@ -1,1 +1,1 @@
-Repository for learn scripts and shell
+README FILE FOR THIS REPOSITORY
