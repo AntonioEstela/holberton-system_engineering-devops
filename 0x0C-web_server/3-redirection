@@ -9,7 +9,7 @@ sudo apt-get -y install nginx
 sudo ufw allow 'Nginx HTTP'
 
 # Changing permissions to create a new html file
-sudo chown -R $USER:$USER /var/www/html
+sudo chown -R "$USER:$USER" /var/www/html
 
 # Creating a new html file
 echo "Holberton School for the win!" > /var/www/html/index.html
