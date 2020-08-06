@@ -2,7 +2,7 @@
 # Bash script that configures a nginx web server.
 
 # Installing nginx
-sudo apt-get -y update
+sudo apt-get update
 sudo apt-get -y install nginx
 
 # Adjusting the Firewall
