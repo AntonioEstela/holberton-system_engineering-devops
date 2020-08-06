@@ -1,18 +1,9 @@
 #!/usr/bin/env bash
-# Bash script that configures a nginx web server.
-
-# Installing nginx
-sudo apt-get update
+# Configure your Nginx server so that /redirect_me is redirecting to another page.
+sudo apt-get -y update
 sudo apt-get -y install nginx
-
-# Adjusting the Firewall
 sudo ufw allow 'Nginx HTTP'
-
-# Creating a new html file
 echo "Holberton School" > /var/www/html/index.html
-
-# Redirecting so that /redirect_me is redirecting to another page.
 sed -i '/listen 80 default_server/a rewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;' /etc/nginx/sites-available/default
-
-# Starting the server
-service nginx start
+sudo service nginx reload
+sudo service nginx start
