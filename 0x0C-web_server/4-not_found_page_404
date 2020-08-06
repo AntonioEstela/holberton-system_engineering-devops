@@ -1,12 +1,24 @@
 #!/usr/bin/env bash
-# Bash script that configures a nginx web server.
+# Bash script that configures a nginx web server.	# Bash script that configures a nginx web server.
 
-sudo apt-get update
-sudo apt-get -y install nginx
-sudo ufw allow 'Nginx HTTP'
-echo "Holberton School for the win!" > /var/www/html/index.nginx-debian.html
-sudo sed -i '/listen 80 default_server/a rewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;' /etc/nginx/sites-available/default
-echo "Ceci n'est pas une page" > /usr/share/nginx/html/custom_404.html
+# Installing nginx	sudo apt-get update
+sudo apt-get -y update	
+sudo apt-get -y install nginx	sudo apt-get -y install nginx
+
+# Adjusting the Firewall	
+sudo ufw allow 'Nginx HTTP'	sudo ufw allow 'Nginx HTTP'
+
+# Creating a new html file	
+echo "Holberton School for the win!" > /var/www/html/index.html	
+
+# Redirecting so that /redirect_me is redirecting to another page.	
+sudo sed -i '/listen 80 default_server/a rewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;' /etc/nginx/sites-available/default	sudo sed -i '/listen 80 default_server/a rewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;' /etc/nginx/sites-available/default
+
+# creating custom 404 eror page	
+echo "Ceci n'est pas une page" > /usr/share/nginx/html/custom_404.html	echo "Ceci n'est pas une page" > /usr/share/nginx/html/custom_404.html
+
 sudo sed -i '/server_name _;/a error_page 404 /custom_404.html;\nlocation = /custom_404.html {\nroot /usr/share/nginx/html;\ninternal;\n}' /etc/nginx/sites-available/default
-sudo service nginx reload
-sudo service nginx restart
+# Configure your Nginx server to have a custom 404 page.	sudo service nginx reload
+sudo sed -i '/listen 80 default_server/a error_page 404 /custom_404.html; location = /custom_404.html {root /usr/share/nginx/html;\n internal;}' /etc/nginx/sites-available/default	sudo service nginx restart
+# Starting the server	
+sudo service nginx start
