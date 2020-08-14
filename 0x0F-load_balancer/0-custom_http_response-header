@@ -12,6 +12,9 @@ sudo chown -R $USER:$USER /var/www/html
 
 # Creating a new html file
 echo "Holberton School for the win!" > /var/www/html/index.html
+echo "Ceci n'est pas une page" > /var/www/html/404.html
+sed -i '/listen 80 default_server;/ a \\terror_page 404 /404.html;' /etc/nginx/sites-available/default
+sed -i '/listen 80 default_server/a rewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;' /etc/nginx/sites-available/default
 
 # Adding a new HTTP response custom header
 sudo sed -i '/listen 80 default_server/a \\tadd_header X-Served-By $hostname;' /etc/nginx/sites-available/default
