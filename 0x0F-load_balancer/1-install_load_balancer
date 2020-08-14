@@ -7,6 +7,9 @@ sudo apt-get update
 # Install HAproxy
 sudo apt-get -y install haproxy
 
+# Enable haproxy to start at boot
+printf "ENABLED=1" >> /etc/default/haproxy
+
 # Append the settings to the haproxy.cfg file
 
 # SETTINGS THAT WILL NEED
