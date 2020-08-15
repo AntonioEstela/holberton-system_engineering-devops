@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+# Bash script that fixes a nginx web server that aren't listening on 80 port
+
+# The default file of sites-enabled is listening on port 8080 
+# That port is registered as an alternative port for ‘HTTP’ service.
+
+# So we need to replace this 8080 port to the 80 port that we need
+sed -i -e 's/8080/80/g' /etc/nginx/sites-enabled/default
+
+# And now we can restart nginx
+sudo service nginx restart
