@@ -20,7 +20,7 @@ if __name__ == "__main__":
     r_todos = requests.get(url_todos)
     json_user = r_user.json()
     json_todos = r_todos.json()
-    employee_name = json_user['name']
+    employee_username = json_user['username']
 
     with open(user_id + '.csv', mode='w') as file:
         writer = csv.writer(file, delimiter=',',
