@@ -20,14 +20,13 @@ if __name__ == "__main__":
     r_todos = requests.get(url_todos)
     json_user = r_user.json()
     json_todos = r_todos.json()
-    employee_name = json_user['name']
     base = []
 
     for task in json_todos:
         base.append({
             'task': task['title'],
             'completed': task['completed'],
-            'username': json_user['name']
+            'username': json_user['username']
             })
 
     data = {user_id: base}
