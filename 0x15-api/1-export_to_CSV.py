@@ -27,5 +27,5 @@ if __name__ == "__main__":
                             quotechar='"', quoting=csv.QUOTE_ALL)
 
         for task in json_todos:
-            writer.writerow([user_id, employee_name,
+            writer.writerow([user_id, employee_username,
                             task['completed'], task['title']])
