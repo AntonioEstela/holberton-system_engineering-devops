@@ -32,4 +32,4 @@ if __name__ == "__main__":
                                                           total_tasks))
 
     for task in json_todos:
-        print('\t{}'.format(task['title']))
+        print('\t {}'.format(task['title']))
